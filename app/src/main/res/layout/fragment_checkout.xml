@@ -21,7 +21,15 @@
     android:id="@+id/layout_checkout"
     tools:context=".ui.order.CheckoutFragment">
 
-    <!-- TODO: Add the data binding variables of the type OrderViewModel and the CheckoutFragment -->
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.lunchtray.model.OrderViewModel" />
+        
+        <variable
+            name="fragment"
+            type="com.example.lunchtray.ui.order.CheckoutFragment" />
+    </data>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -123,13 +131,13 @@
                 app:layout_constraintTop_toBottomOf="@id/tax"
                 tools:text="Total: $10.73"/>
 
-            <!-- TODO: submit the order when clicked -->
             <Button
                 android:id="@+id/submit_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/side_margin"
                 android:text="@string/submit"
+                android:onClick="@{() -> fragment.submitOrder()}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/total"/>
